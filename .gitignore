@@ -1,0 +1,32 @@
+# Environnement virtuel
+env/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Base de données SQLite
+db.sqlite3
+
+# Fichiers de migration compilés
+*.log
+
+# Variables d'environnement
+.env
+
+# VS Code / éditeur
+.vscode/
+.idea/
+
+# Mac
+.DS_Store
+
+# Static files (optionnel selon config)
+staticfiles/
+
+# Media files (uploads utilisateurs)
+media/
