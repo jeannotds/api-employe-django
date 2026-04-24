@@ -29,3 +29,18 @@ def create_employe(request):
     return Response(serializer.data)
   return Response(serializer.errors)
   
+@api_view(['PATCH'])
+def update_employe(request, id):
+  employe = Employe.objects.get(id=id)
+  serializer = EmployeSerializer(employe, data=request.data, partial=True)
+  
+  if serializer.is_valid():
+    serializer.save()
+    return Response(serializer.data)
+  return Response(serializer.errors)
+
+@api_view(['DELETE'])
+def delete_employe(request, id):
+  employe = Employe.objects.get(id=id)
+  employe.delete()
+  return Response({'message': 'Employé supprimé avec succès'})
