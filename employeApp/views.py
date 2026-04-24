@@ -44,3 +44,7 @@ def delete_employe(request, id):
   employe = Employe.objects.get(id=id)
   employe.delete()
   return Response({'message': 'Employé supprimé avec succès'})
+
+
+  #  Enpoint for Department
+  # @api_view(['DELETE'])
