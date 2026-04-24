@@ -2,8 +2,8 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from employeApp.serializers import EmployeSerializer
-from .models import Employe
+from employeApp.serializers import DepartementSerializer, EmployeSerializer
+from .models import Departement, Employe
 
 # Create your views here.
 
@@ -47,4 +47,17 @@ def delete_employe(request, id):
 
 
   #  Enpoint for Department
-  # @api_view(['DELETE'])
+@api_view(['GET'])
+def department_list(request):
+  departements = Departement.objects.all()
+  serializer = DepartementSerializer(departements, many=True)
+  return Response(serializer.data)
+
+
+@api_view(['POST'])
+def create_department(request):
+  serializer = DepartementSerializer(data= request.data)
+  if serializer.is_valid():
+    serializer.save()
+    return Response(serializer.data)
+  return Response(serializer.errors)

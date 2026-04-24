@@ -5,8 +5,8 @@ class Departement(models.Model):
   nom_dept= models.CharField(max_length=100)
   data_embauche= models.DateTimeField(auto_now_add=True)
 
-def __str__(self):
-  return self.nom_dept
+  def __str__(self):
+    return self.nom_dept
 
 # Create your models here.
 class  Employe(models.Model):
@@ -24,5 +24,5 @@ class  Employe(models.Model):
     blank=True
   )
 
-def __str__(self):
-  return self.nom
+  def __str__(self):
+    return self.nom
