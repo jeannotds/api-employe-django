@@ -20,3 +20,12 @@ def employe_list(request):
       serializer.save()
       return Response(serializer.data)
     return Response(serializer.errors)
+
+@api_view(['POST'])
+def create_employe(request):
+  serializer = EmployeSerializer(data=request.data)
+  if serializer.is_valid():
+    serializer.save()
+    return Response(serializer.data)
+  return Response(serializer.errors)
+  
